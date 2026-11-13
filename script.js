@@ -1,7 +1,7 @@
 // ---- Edit these to match the business ----
 const CONFIG = {
   prices: {
-    slice: null,                // e.g. 6 for $6.00 (null shows "$—" until set)
+    slice: 10,
     whole: 75,
   },
   maxQty: { slice: 12, whole: 5 },
