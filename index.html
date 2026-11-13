@@ -44,8 +44,8 @@
       </div>
       <div class="hero-media reveal">
         <div class="media-frame">
-          <video class="hero-video" autoplay muted loop playsinline poster="assets/media/cake-1.jpg">
-            <source src="assets/media/cake-video-1.mp4" type="video/mp4"/>
+          <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/media/video-2-poster.jpg">
+            <source src="assets/media/cake-video-2.mp4" type="video/mp4"/>
           </video>
           <div class="media-fallback">🥕</div>
         </div>
@@ -86,6 +86,7 @@
           <div class="slice-price"><span data-price="cupcake">$5</span><small> each</small></div>
         </div>
         <div class="layers" aria-label="Tap a layer to learn more">
+          <button class="layer layer-nuts" data-layer="walnuts">Walnut topping</button>
           <button class="layer layer-top" data-layer="frosting">Frosting</button>
           <button class="layer layer-mid" data-layer="cake">Cake</button>
           <button class="layer layer-bot" data-layer="base">Made with love</button>
@@ -117,18 +118,18 @@
     <p class="eyebrow">Gallery</p>
     <h2>See it for yourself.</h2>
     <div class="gallery">
-      <button class="g-item g-tall reveal" data-type="video" data-src="assets/media/cake-video-1.mp4" data-poster="assets/media/cake-1.jpg">
-        <img src="assets/media/cake-1.jpg" alt="Shaykh Carrot Cake" loading="lazy"/>
+      <button class="g-item g-tall reveal" data-type="video" data-src="assets/media/cake-video-1.mp4" data-poster="assets/media/video-1-poster.jpg">
+        <img src="assets/media/video-1-poster.jpg" alt="Wrapped slices of Shaykh Carrot Cake (video)" loading="lazy"/>
         <span class="play">▶</span>
       </button>
-      <button class="g-item reveal" data-type="image" data-src="assets/media/cake-2.jpg">
-        <img src="assets/media/cake-2.jpg" alt="A slice of carrot cake" loading="lazy"/>
+      <button class="g-item reveal" data-type="image" data-src="assets/media/cake-1.jpg">
+        <img src="assets/media/cake-1.jpg" alt="A pan of carrot cake topped with frosting and walnuts" loading="lazy"/>
       </button>
       <button class="g-item reveal" data-type="image" data-src="assets/media/cake-3.jpg">
-        <img src="assets/media/cake-3.jpg" alt="Carrot cake close-up" loading="lazy"/>
+        <img src="assets/media/cake-3.jpg" alt="Freshly frosted carrot cake, cut into squares" loading="lazy"/>
       </button>
-      <button class="g-item g-wide reveal" data-type="video" data-src="assets/media/cake-video-2.mp4" data-poster="assets/media/cake-3.jpg">
-        <img src="assets/media/cake-3.jpg" alt="Carrot cake video" loading="lazy"/>
+      <button class="g-item g-wide reveal" data-type="video" data-src="assets/media/cake-video-2.mp4" data-poster="assets/media/video-2-poster.jpg">
+        <img src="assets/media/video-2-poster.jpg" alt="Close-up of a carrot cake slice (video)" loading="lazy"/>
         <span class="play">▶</span>
       </button>
     </div>
@@ -178,7 +179,7 @@
           <a class="btn" id="sendText" href="#">Text my order</a>
           <a class="btn btn-ghost" id="sendEmail" href="#">Email it</a>
         </div>
-        <p class="fine">You'll confirm your order and payment with us directly.</p>
+        <p class="fine">You'll confirm your order and payment with us directly.<br/><strong>Allergy note:</strong> contains walnuts (tree nuts), wheat, eggs and dairy.</p>
       </div>
     </div>
   </section>

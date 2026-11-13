@@ -66,7 +66,8 @@ img { display: block; max-width: 100%; }
 .layers { display: flex; flex-direction: column; width: min(300px, 100%); }
 .layer { border: 0; font: inherit; font-weight: 700; color: var(--cocoa); padding: 14px; cursor: pointer; transition: transform .2s, filter .2s; text-align: left; }
 .layer:hover, .layer.active { transform: translateX(10px); filter: brightness(1.04); }
-.layer-top { background: #fff7ec; border-radius: 16px 16px 0 0; border: 1px solid var(--line); }
+.layer-nuts { background: #c9a27a; color: #fff; border-radius: 16px 16px 0 0; }
+.layer-top { background: #fff7ec; border: 1px solid var(--line); }
 .layer-mid { background: #d98a4e; color: #fff; }
 .layer-bot { background: #a8622f; color: #fff; border-radius: 0 0 16px 16px; }
 .layer-info { color: var(--muted); min-height: 3.2em; margin-top: 14px; }

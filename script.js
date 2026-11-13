@@ -22,9 +22,11 @@ const INGREDIENTS = [
   { e: "🍂", name: "Warm spices", text: "Cinnamon and friends, measured by hand for that cozy flavor." },
   { e: "🧀", name: "Organic cream cheese", text: "Whipped into a rich, tangy frosting." },
   { e: "🧈", name: "Organic butter", text: "Makes the frosting smooth and silky." },
+  { e: "🌰", name: "Organic walnuts", text: "Chopped and sprinkled generously on top for a toasty crunch. (Contains tree nuts.)" },
 ];
 
 const LAYERS = {
+  walnuts: "A generous crunch of chopped organic walnuts on top. Note: contains tree nuts.",
   frosting: "Rich cream cheese frosting made with organic cream cheese and butter, whipped by hand.",
   cake: "Moist, spiced carrot cake made with freshly grated organic carrots and simple organic ingredients.",
   base: "Homemade in small batches, never mass-produced. Every slice gets the same care.",
