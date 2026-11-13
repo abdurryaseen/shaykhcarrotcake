@@ -2,9 +2,11 @@
 const CONFIG = {
   prices: {
     slice: 10,
+    cupcake: 5,
+    dozen: 60,
     whole: 75,
   },
-  maxQty: { slice: 12, whole: 5 },
+  maxQty: { slice: 12, cupcake: 24, dozen: 10, whole: 5 },
   phone: "",                    // e.g. "3135551234" (used for "Text my order")
   email: "",                    // e.g. "orders@example.com"
   // Metro Detroit ZIP prefixes we serve. Tighten or add exact ZIPs as needed.
@@ -72,6 +74,8 @@ let qty = 1;
 let item = "slice";
 const ITEM = {
   slice: { label: "Slices", one: "slice", many: "slices", emoji: "🍰" },
+  cupcake: { label: "Cupcakes", one: "carrot cupcake", many: "carrot cupcakes", emoji: "🧁" },
+  dozen: { label: "Dozens", one: "dozen carrot cupcakes", many: "dozen carrot cupcakes", emoji: "📦" },
   whole: { label: "Whole cakes", one: "whole carrot cake", many: "whole carrot cakes", emoji: "🎂" },
 };
 document.querySelectorAll(".toggle button").forEach((b) =>
@@ -81,7 +85,7 @@ document.querySelectorAll(".toggle button").forEach((b) =>
       x.classList.toggle("active", x === b);
       x.setAttribute("aria-checked", x === b);
     });
-    qty = Math.min(qty, CONFIG.maxQty[item]);
+    qty = 1;
     renderOrder();
   })
 );
@@ -95,6 +99,7 @@ function renderOrder() {
   const name = $("#name").value.trim();
   const msg =
     `Hi Shaykh Carrot Cake! I'd like to order ${qty} ${qty > 1 ? it.many : it.one}` +
+    (price != null ? ` ($${qty * price})` : "") +
     ` for ${$("#method").value.toLowerCase()}.` +
     ($("#zip").value ? ` My ZIP is ${$("#zip").value}.` : "") +
     (name ? ` - ${name}` : "");
