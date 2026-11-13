@@ -7,7 +7,7 @@ const CONFIG = {
     whole: 75,
   },
   maxQty: { slice: 12, cupcake: 24, dozen: 10, whole: 5 },
-  phone: "",                    // e.g. "3135551234" (used for "Text my order")
+  phone: "3135290779",          // used for "Text my order" and call links
   email: "",                    // e.g. "orders@example.com"
   // Metro Detroit ZIP prefixes we serve. Tighten or add exact ZIPs as needed.
   zipPrefixes: ["480", "481", "482", "483"],
@@ -106,21 +106,24 @@ function renderOrder() {
     ($("#zip").value ? ` My ZIP is ${$("#zip").value}.` : "") +
     (name ? ` - ${name}` : "");
   $("#sendText").href = CONFIG.phone ? `sms:${CONFIG.phone}?&body=${encodeURIComponent(msg)}` : "#order";
-  $("#sendEmail").href = CONFIG.email
-    ? `mailto:${CONFIG.email}?subject=${encodeURIComponent("Carrot cake order")}&body=${encodeURIComponent(msg)}`
-    : "#order";
+  if ($("#sendEmail")) {
+    $("#sendEmail").href = CONFIG.email
+      ? `mailto:${CONFIG.email}?subject=${encodeURIComponent("Carrot cake order")}&body=${encodeURIComponent(msg)}`
+      : "#order";
+  }
 }
 $("#minus").addEventListener("click", () => { qty = Math.max(1, qty - 1); renderOrder(); });
 $("#plus").addEventListener("click", () => { qty = Math.min(CONFIG.maxQty[item], qty + 1); renderOrder(); });
 ["#name", "#method", "#zip"].forEach((s) => $(s).addEventListener("input", renderOrder));
 ["#sendText", "#sendEmail"].forEach((s) =>
-  $(s).addEventListener("click", (e) => {
+  $(s)?.addEventListener("click", (e) => {
     if ($(s).getAttribute("href") === "#order") {
       e.preventDefault();
       alert("Online ordering details are coming soon. Please check back shortly!");
     }
   })
 );
+if (!CONFIG.email) $("#sendEmail").remove();
 renderOrder();
 
 // ZIP checker
