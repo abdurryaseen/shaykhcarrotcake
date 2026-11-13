@@ -3,88 +3,179 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="Shaykh Carrot Cake — homemade carrot cake baked fresh in Detroit, Michigan. Whole cakes, slices and custom orders."/>
+<meta name="description" content="Shaykh Carrot Cake: one perfect slice of homemade carrot cake, made with all-organic ingredients. Available in the Detroit, Michigan area."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,800;1,9..144,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/site.css"/>
 <title>Shaykh Carrot Cake | Detroit</title>
 </head>
 <body>
+
+<div class="banner">Now serving the Detroit, Michigan area only</div>
+
 <header class="nav wrap">
-  <a href="#" class="brand">Shaykh <span>Carrot Cake</span></a>
+  <a href="#top" class="brand">Shaykh <span>Carrot Cake</span></a>
   <nav>
-    <a href="#menu">Menu</a>
-    <a href="#story">Our Story</a>
-    <a href="#order" class="btn btn-sm">Order Now</a>
+    <a href="#slice">The Slice</a>
+    <a href="#ingredients">Ingredients</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#order" class="btn btn-sm">Order</a>
   </nav>
 </header>
 
-<main>
+<main id="top">
+  <!-- HERO -->
   <section class="hero">
-    <div class="wrap hero-inner">
-      <p class="eyebrow">Baked fresh in Detroit, MI</p>
-      <h1>The carrot cake Detroit keeps coming back for.</h1>
-      <p class="lede">Moist, spiced layers and rich cream cheese frosting, made from scratch in small batches. Whole cakes, slices and custom orders for every occasion.</p>
-      <div class="cta-row">
-        <a href="#order" class="btn">Place an order</a>
-        <a href="#menu" class="btn btn-ghost">See the menu</a>
+    <div class="wrap hero-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Homemade · All organic · Detroit, MI</p>
+        <h1>One slice.<br/><em>Done right.</em></h1>
+        <p class="lede">We make one thing: a single, generous slice of carrot cake, baked from scratch at home with all-organic ingredients.</p>
+        <div class="cta-row">
+          <a href="#order" class="btn">Order a slice</a>
+          <a href="#ingredients" class="btn btn-ghost">What's inside</a>
+        </div>
+        <ul class="badges">
+          <li><span>🥕</span>100% organic ingredients</li>
+          <li><span>🏠</span>Homemade in small batches</li>
+          <li><span>📍</span>Detroit area only</li>
+        </ul>
+      </div>
+      <div class="hero-media reveal">
+        <div class="media-frame">
+          <video class="hero-video" autoplay muted loop playsinline poster="assets/media/cake-1.jpg">
+            <source src="assets/media/cake-video-1.mp4" type="video/mp4"/>
+          </video>
+          <div class="media-fallback">🥕</div>
+        </div>
+        <div class="sticker">Made<br/>fresh</div>
       </div>
     </div>
   </section>
 
-  <section id="menu" class="wrap section">
-    <h2>The Menu</h2>
-    <p class="section-sub">Prices and sizes are placeholders — update with the real menu.</p>
-    <div class="grid">
-      <article class="card">
-        <h3>Classic Slice</h3>
-        <p>A generous slice of our signature carrot cake with cream cheese frosting.</p>
-        <span class="price">$[price]</span>
-      </article>
-      <article class="card">
-        <h3>Whole Cake</h3>
-        <p>Three layers, perfect for family dinners, Eid gatherings and celebrations.</p>
-        <span class="price">$[price]</span>
-      </article>
-      <article class="card">
-        <h3>Custom Orders</h3>
-        <p>Weddings, events and corporate trays. Reach out at least a week ahead.</p>
-        <span class="price">Ask us</span>
-      </article>
-    </div>
-  </section>
-
-  <section id="story" class="story">
-    <div class="wrap story-inner">
-      <h2>Our Story</h2>
-      <p>[Add the Shaykh Carrot Cake story here — who bakes it, how it started, and what makes the recipe special. A proudly local Detroit business.]</p>
-    </div>
-  </section>
-
-  <section id="order" class="wrap section">
-    <h2>Order &amp; Visit</h2>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>Get in touch</h3>
-        <p>Phone: [phone number]</p>
-        <p>Email: [email address]</p>
-        <p>Instagram: [@handle]</p>
+  <!-- THE SLICE -->
+  <section id="slice" class="wrap section">
+    <div class="slice-grid">
+      <div class="slice-photo reveal">
+        <img src="assets/media/cake-2.jpg" alt="A slice of Shaykh Carrot Cake" loading="lazy"/>
       </div>
-      <div class="card">
-        <h3>Find us</h3>
-        <p>[Street address or pickup location]<br/>Detroit, MI</p>
-        <p>Hours: [days and times]</p>
+      <div class="slice-copy reveal">
+        <p class="eyebrow">The menu</p>
+        <h2>There's only one thing on it.</h2>
+        <p>No long menu and no shortcuts. Just one carrot cake slice, made the same careful way every time.</p>
+        <div class="slice-card">
+          <div>
+            <h3>The Shaykh Slice</h3>
+            <p class="muted">One piece of homemade carrot cake with frosting</p>
+          </div>
+          <div class="slice-price" data-price-label>$—</div>
+        </div>
+        <div class="layers" aria-label="Tap a layer to learn more">
+          <button class="layer layer-top" data-layer="frosting">Frosting</button>
+          <button class="layer layer-mid" data-layer="cake">Cake</button>
+          <button class="layer layer-bot" data-layer="base">Made with love</button>
+        </div>
+        <p class="layer-info" id="layerInfo">Tap a layer to see what goes into it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INGREDIENTS -->
+  <section id="ingredients" class="band">
+    <div class="wrap section">
+      <p class="eyebrow light">What's inside</p>
+      <h2>All organic. Nothing you can't pronounce.</h2>
+      <p class="band-sub">Tap any ingredient.</p>
+      <div class="chips" id="chips"></div>
+      <div class="chip-detail" id="chipDetail" aria-live="polite">
+        <span class="chip-emoji">🥕</span>
+        <div>
+          <h3>Organic carrots</h3>
+          <p>Freshly grated by hand for every batch. They're the heart of the cake.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="wrap section">
+    <p class="eyebrow">Gallery</p>
+    <h2>See it for yourself.</h2>
+    <div class="gallery">
+      <button class="g-item g-tall reveal" data-type="video" data-src="assets/media/cake-video-1.mp4" data-poster="assets/media/cake-1.jpg">
+        <img src="assets/media/cake-1.jpg" alt="Shaykh Carrot Cake" loading="lazy"/>
+        <span class="play">▶</span>
+      </button>
+      <button class="g-item reveal" data-type="image" data-src="assets/media/cake-2.jpg">
+        <img src="assets/media/cake-2.jpg" alt="A slice of carrot cake" loading="lazy"/>
+      </button>
+      <button class="g-item reveal" data-type="image" data-src="assets/media/cake-3.jpg">
+        <img src="assets/media/cake-3.jpg" alt="Carrot cake close-up" loading="lazy"/>
+      </button>
+      <button class="g-item g-wide reveal" data-type="video" data-src="assets/media/cake-video-2.mp4" data-poster="assets/media/cake-3.jpg">
+        <img src="assets/media/cake-3.jpg" alt="Carrot cake video" loading="lazy"/>
+        <span class="play">▶</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section id="order" class="order-band">
+    <div class="wrap section order-grid">
+      <div class="reveal">
+        <p class="eyebrow">Order</p>
+        <h2>Get your slice.</h2>
+        <p>We currently serve the <strong>Detroit, Michigan area only</strong>. Check your ZIP code, choose how many slices you want, and send us your order.</p>
+
+        <form class="zip-check" id="zipForm" autocomplete="off">
+          <label for="zip">Do we deliver to you?</label>
+          <div class="zip-row">
+            <input id="zip" inputmode="numeric" maxlength="5" placeholder="Enter ZIP code" aria-describedby="zipResult"/>
+            <button class="btn btn-sm" type="submit">Check</button>
+          </div>
+          <p id="zipResult" class="zip-result" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="order-card reveal">
+        <h3>Your order</h3>
+        <div class="qty-row">
+          <span>Slices</span>
+          <div class="stepper">
+            <button type="button" id="minus" aria-label="Fewer slices">−</button>
+            <output id="qty">1</output>
+            <button type="button" id="plus" aria-label="More slices">+</button>
+          </div>
+        </div>
+        <div class="slice-stack" id="stack" aria-hidden="true"></div>
+        <div class="total-row"><span>Total</span><strong id="total">$—</strong></div>
+        <label class="field">Name<input id="name" placeholder="Your name"/></label>
+        <label class="field">Pickup or delivery?
+          <select id="method"><option>Pickup</option><option>Delivery</option></select>
+        </label>
+        <div class="send-row">
+          <a class="btn" id="sendText" href="#">Text my order</a>
+          <a class="btn btn-ghost" id="sendEmail" href="#">Email it</a>
+        </div>
+        <p class="fine">You'll confirm your order and payment with us directly.</p>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div class="wrap">
-    <p>&copy; <span id="year"></span> Shaykh Carrot Cake · Detroit, Michigan</p>
+  <div class="wrap footer-row">
+    <span class="brand">Shaykh <span>Carrot Cake</span></span>
+    <span>Homemade with organic ingredients · Detroit, Michigan · &copy; <span id="year"></span></span>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+  <div class="lb-body" id="lbBody"></div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
