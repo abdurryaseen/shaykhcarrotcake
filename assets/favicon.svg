@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#3b2418"/>
-  <g transform="translate(-4.5 2.5) rotate(35 32 32)">
+  <circle cx="32" cy="32" r="32" fill="#3b2418"/>
+  <g transform="translate(32 32) scale(.84) translate(-32 -32) translate(-4.5 2.5) rotate(35 32 32)">
     <!-- leaves -->
     <path d="M32 17 C27 9 24 6 21 5 C24 10 27 14 30 18 Z" fill="#7fb24f"/>
     <path d="M32 17 C32 9 33 5 35 2 C36 8 35 13 34 18 Z" fill="#5f9a3a"/>
