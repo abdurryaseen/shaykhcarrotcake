@@ -106,6 +106,10 @@ img { display: block; max-width: 100%; }
 .zip-result.no { color: var(--carrot-dark); }
 .order-card { background: var(--frosting); border: 1px solid var(--line); border-radius: 26px; padding: 26px; box-shadow: 0 20px 50px -25px rgba(59,36,24,.3); }
 .order-card h3 { margin: 0 0 16px; font-size: 1.5rem; }
+.toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--cream); border-radius: 14px; padding: 4px; margin-bottom: 18px; }
+.toggle button { font: inherit; font-weight: 700; font-size: .9rem; border: 0; border-radius: 10px; padding: 10px 8px; background: transparent; color: var(--cocoa); cursor: pointer; }
+.toggle button.active { background: #fff; color: var(--carrot-dark); box-shadow: 0 2px 8px rgba(59,36,24,.12); }
+.slice-card + .slice-card { margin-top: -12px; }
 .qty-row, .total-row { display: flex; justify-content: space-between; align-items: center; font-weight: 500; }
 .total-row { border-top: 1px dashed rgba(59,36,24,.2); padding-top: 14px; margin: 8px 0 18px; font-size: 1.1rem; }
 .total-row strong { font-family: "Fraunces", serif; font-size: 1.6rem; color: var(--carrot-dark); }

@@ -31,7 +31,7 @@
       <div class="hero-copy reveal">
         <p class="eyebrow">Homemade · All organic · Detroit, MI</p>
         <h1>One slice.<br/><em>Done right.</em></h1>
-        <p class="lede">We make one thing: a single, generous slice of carrot cake, baked from scratch at home with all-organic ingredients.</p>
+        <p class="lede">We make one thing: carrot cake, baked from scratch at home with all-organic ingredients. Get a generous slice, or order the whole cake for $75.</p>
         <div class="cta-row">
           <a href="#order" class="btn">Order a slice</a>
           <a href="#ingredients" class="btn btn-ghost">What's inside</a>
@@ -62,14 +62,21 @@
       </div>
       <div class="slice-copy reveal">
         <p class="eyebrow">The menu</p>
-        <h2>There's only one thing on it.</h2>
-        <p>No long menu and no shortcuts. Just one carrot cake slice, made the same careful way every time.</p>
+        <h2>Grab a slice, or take the whole cake.</h2>
+        <p>No long menu and no shortcuts. Just one carrot cake, made the same careful way every time.</p>
         <div class="slice-card">
           <div>
             <h3>The Shaykh Slice</h3>
             <p class="muted">One piece of homemade carrot cake with frosting</p>
           </div>
-          <div class="slice-price" data-price-label>$—</div>
+          <div class="slice-price" data-price="slice">$—</div>
+        </div>
+        <div class="slice-card">
+          <div>
+            <h3>The Whole Cake</h3>
+            <p class="muted">A full homemade carrot cake for family, guests and celebrations</p>
+          </div>
+          <div class="slice-price" data-price="whole">$75</div>
         </div>
         <div class="layers" aria-label="Tap a layer to learn more">
           <button class="layer layer-top" data-layer="frosting">Frosting</button>
@@ -126,7 +133,7 @@
       <div class="reveal">
         <p class="eyebrow">Order</p>
         <h2>Get your slice.</h2>
-        <p>We currently serve the <strong>Detroit, Michigan area only</strong>. Check your ZIP code, choose how many slices you want, and send us your order.</p>
+        <p>We currently serve the <strong>Detroit, Michigan area only</strong>. Check your ZIP code, pick slices or a whole cake, and send us your order.</p>
 
         <form class="zip-check" id="zipForm" autocomplete="off">
           <label for="zip">Do we deliver to you?</label>
@@ -140,8 +147,12 @@
 
       <div class="order-card reveal">
         <h3>Your order</h3>
+        <div class="toggle" role="radiogroup" aria-label="What would you like?">
+          <button type="button" class="active" data-item="slice" role="radio" aria-checked="true">🍰 Slice</button>
+          <button type="button" data-item="whole" role="radio" aria-checked="false">🎂 Whole cake · $75</button>
+        </div>
         <div class="qty-row">
-          <span>Slices</span>
+          <span id="qtyLabel">Slices</span>
           <div class="stepper">
             <button type="button" id="minus" aria-label="Fewer slices">−</button>
             <output id="qty">1</output>

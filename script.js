@@ -1,7 +1,10 @@
 // ---- Edit these to match the business ----
 const CONFIG = {
-  pricePerSlice: null,          // e.g. 6 for $6.00 (null shows "$—" until set)
-  maxSlices: 12,
+  prices: {
+    slice: null,                // e.g. 6 for $6.00 (null shows "$—" until set)
+    whole: 75,
+  },
+  maxQty: { slice: 12, whole: 5 },
   phone: "",                    // e.g. "3135551234" (used for "Text my order")
   email: "",                    // e.g. "orders@example.com"
   // Metro Detroit ZIP prefixes we serve. Tighten or add exact ZIPs as needed.
@@ -29,7 +32,7 @@ const $ = (s) => document.querySelector(s);
 const money = (n) => (n == null ? "$—" : "$" + n.toFixed(2));
 
 $("#year").textContent = new Date().getFullYear();
-document.querySelectorAll("[data-price-label]").forEach((el) => (el.textContent = money(CONFIG.pricePerSlice)));
+document.querySelectorAll("[data-price]").forEach((el) => (el.textContent = money(CONFIG.prices[el.dataset.price])));
 
 // Hero video: hide fallback once it plays, keep fallback if the file is missing
 const heroVideo = $(".hero-video");
@@ -66,13 +69,32 @@ INGREDIENTS.forEach((ing, i) => {
 
 // Order builder
 let qty = 1;
+let item = "slice";
+const ITEM = {
+  slice: { label: "Slices", one: "slice", many: "slices", emoji: "🍰" },
+  whole: { label: "Whole cakes", one: "whole carrot cake", many: "whole carrot cakes", emoji: "🎂" },
+};
+document.querySelectorAll(".toggle button").forEach((b) =>
+  b.addEventListener("click", () => {
+    item = b.dataset.item;
+    document.querySelectorAll(".toggle button").forEach((x) => {
+      x.classList.toggle("active", x === b);
+      x.setAttribute("aria-checked", x === b);
+    });
+    qty = Math.min(qty, CONFIG.maxQty[item]);
+    renderOrder();
+  })
+);
 function renderOrder() {
+  const it = ITEM[item];
+  const price = CONFIG.prices[item];
+  $("#qtyLabel").textContent = it.label;
   $("#qty").textContent = qty;
-  $("#total").textContent = CONFIG.pricePerSlice == null ? "$—" : money(qty * CONFIG.pricePerSlice);
-  $("#stack").innerHTML = "<span>🍰</span>".repeat(qty);
+  $("#total").textContent = price == null ? "$—" : money(qty * price);
+  $("#stack").innerHTML = `<span>${it.emoji}</span>`.repeat(qty);
   const name = $("#name").value.trim();
   const msg =
-    `Hi Shaykh Carrot Cake! I'd like to order ${qty} slice${qty > 1 ? "s" : ""}` +
+    `Hi Shaykh Carrot Cake! I'd like to order ${qty} ${qty > 1 ? it.many : it.one}` +
     ` for ${$("#method").value.toLowerCase()}.` +
     ($("#zip").value ? ` My ZIP is ${$("#zip").value}.` : "") +
     (name ? ` - ${name}` : "");
@@ -82,7 +104,7 @@ function renderOrder() {
     : "#order";
 }
 $("#minus").addEventListener("click", () => { qty = Math.max(1, qty - 1); renderOrder(); });
-$("#plus").addEventListener("click", () => { qty = Math.min(CONFIG.maxSlices, qty + 1); renderOrder(); });
+$("#plus").addEventListener("click", () => { qty = Math.min(CONFIG.maxQty[item], qty + 1); renderOrder(); });
 ["#name", "#method", "#zip"].forEach((s) => $(s).addEventListener("input", renderOrder));
 ["#sendText", "#sendEmail"].forEach((s) =>
   $(s).addEventListener("click", (e) => {
