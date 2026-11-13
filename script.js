@@ -25,6 +25,12 @@ const INGREDIENTS = [
   { e: "🌰", name: "Organic walnuts", text: "Chopped and sprinkled generously on top for a toasty crunch. (Contains tree nuts.)" },
 ];
 
+// ---- Real customer reviews ----
+// Add reviews customers actually sent you (only with their permission). Example:
+// { name: "Aisha", area: "Dearborn", stars: 5, text: "Best carrot cake I've ever had." },
+const REVIEWS = [
+];
+
 const LAYERS = {
   walnuts: "A generous crunch of chopped organic walnuts on top. Note: contains tree nuts.",
   frosting: "Rich cream cheese frosting made with organic cream cheese and butter, whipped by hand.",
@@ -143,6 +149,47 @@ $("#zipForm").addEventListener("submit", (e) => {
   }
   renderOrder();
 });
+
+// Reviews
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const starRow = (n) => "★".repeat(Math.round(n)) + `<span class="off">${"★".repeat(5 - Math.round(n))}</span>`;
+if (REVIEWS.length) {
+  const avg = REVIEWS.reduce((s, r) => s + r.stars, 0) / REVIEWS.length;
+  $("#ratingNum").textContent = avg.toFixed(1);
+  $("#ratingStars").innerHTML = starRow(avg);
+  $("#ratingCount").textContent = `${REVIEWS.length} review${REVIEWS.length > 1 ? "s" : ""}`;
+  $("#ratingSummary").hidden = false;
+  $("#reviewList").innerHTML = REVIEWS.map(
+    (r) => `<figure class="review"><div class="stars" aria-label="${r.stars} out of 5 stars">${starRow(r.stars)}</div>
+      <blockquote>“${esc(r.text)}”</blockquote>
+      <figcaption>${esc(r.name)}${r.area ? ` <span>· ${esc(r.area)}</span>` : ""}</figcaption></figure>`
+  ).join("");
+} else {
+  $("#reviewsEmpty").hidden = false;
+}
+
+let pickedStars = 5;
+const starPick = $("#starPick");
+for (let i = 1; i <= 5; i++) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.textContent = "★";
+  b.setAttribute("role", "radio");
+  b.setAttribute("aria-label", `${i} star${i > 1 ? "s" : ""}`);
+  b.addEventListener("click", () => { pickedStars = i; renderStars(); });
+  starPick.appendChild(b);
+}
+function renderStars() {
+  starPick.querySelectorAll("button").forEach((b, i) => {
+    b.classList.toggle("on", i < pickedStars);
+    b.setAttribute("aria-checked", i + 1 === pickedStars);
+  });
+  const name = $("#reviewName").value.trim();
+  const msg = `Shaykh Carrot Cake review: ${pickedStars}/5 stars. ${$("#reviewText").value.trim()}` + (name ? ` - ${name}` : "");
+  $("#sendReview").href = CONFIG.phone ? `sms:${CONFIG.phone}?&body=${encodeURIComponent(msg)}` : "#reviews";
+}
+["#reviewText", "#reviewName"].forEach((s) => $(s).addEventListener("input", renderStars));
+renderStars();
 
 // Lightbox
 const lb = $("#lightbox");

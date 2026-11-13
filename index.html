@@ -27,6 +27,7 @@
     <a href="#slice">The Slice</a>
     <a href="#ingredients">Ingredients</a>
     <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
     <a href="#order" class="btn btn-sm">Order</a>
   </nav>
 </header>
@@ -139,6 +140,39 @@
         <img src="assets/media/video-2-poster.jpg" alt="Close-up of a carrot cake slice (video)" loading="lazy"/>
         <span class="play">▶</span>
       </button>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="reviews-band">
+    <div class="wrap section">
+      <div class="reviews-head reveal">
+        <div>
+          <p class="eyebrow">Reviews</p>
+          <h2>What Detroit is saying.</h2>
+        </div>
+        <div class="rating-summary" id="ratingSummary" hidden>
+          <span class="rating-num" id="ratingNum">5.0</span>
+          <div>
+            <div class="stars" id="ratingStars" aria-hidden="true"></div>
+            <p class="muted" id="ratingCount"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews" id="reviewList"></div>
+      <p class="reviews-empty" id="reviewsEmpty" hidden>Reviews from our customers are coming soon. Tried a slice? Be one of the first to share what you thought!</p>
+
+      <div class="leave-review reveal">
+        <h3>Tried it? Leave a review</h3>
+        <div class="star-pick" id="starPick" role="radiogroup" aria-label="Your rating"></div>
+        <textarea id="reviewText" rows="3" placeholder="What did you think?"></textarea>
+        <div class="leave-row">
+          <input id="reviewName" placeholder="Your first name"/>
+          <a class="btn" id="sendReview" href="#">Send review</a>
+        </div>
+        <p class="fine">Your review comes to us by text, and we may feature it here.</p>
+      </div>
     </div>
   </section>
 
