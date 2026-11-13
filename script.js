@@ -3,7 +3,7 @@ const CONFIG = {
   prices: {
     slice: 10,
     cupcake: 5,
-    dozen: 60,
+    dozen: 50,
     whole: 75,
   },
   maxQty: { slice: 12, cupcake: 24, dozen: 10, whole: 5 },
